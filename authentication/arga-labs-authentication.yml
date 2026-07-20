@@ -1,0 +1,34 @@
+generated: '2026-07-18'
+method: searched
+source: https://docs.argalabs.com/api-reference/auth
+docs: https://docs.argalabs.com/api-reference/auth
+base_url: https://api.argalabs.com
+summary:
+  types:
+  - http
+  http_schemes:
+  - bearer
+  token_kinds:
+  - api_key
+  - jwt
+schemes:
+- name: apiKeyBearer
+  type: http
+  scheme: bearer
+  token_type: API key
+  prefix: arga_sk_
+  usage: Server-to-server calls — SDKs, CI jobs, scripts, local tools.
+  header: 'Authorization: Bearer <token>'
+  provisioning:
+  - Settings -> API Keys in the web app
+  - arga login (device-scoped key stored at ~/.config/arga/config.json)
+  quickstart_key:
+    note: Email get-started signup yields a quickstart API key limited to 5 twin provisions.
+- name: jwtSession
+  type: http
+  scheme: bearer
+  token_type: JWT
+  usage: Web app sessions and user-scoped browser flows. Some GitHub configuration endpoints require a user session.
+notes:
+- One account per email address; identity endpoints return 409 when violated.
+- CLI/SDK/MCP all target https://api.argalabs.com by default; override with --api-url or ARGA_API_URL.
