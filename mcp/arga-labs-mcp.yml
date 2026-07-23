@@ -1,0 +1,75 @@
+generated: '2026-07-18'
+method: searched
+status: published
+source: https://docs.argalabs.com/mcp
+server:
+  name: arga-context
+  transport: http
+  url: https://api.argalabs.com/mcp
+  auth:
+    type: bearer
+    header: Authorization
+    note: Bearer <arga_sk_ API key>. `arga mcp install` writes the entry using the saved CLI credential.
+install:
+  cli: arga mcp install
+  prerequisites:
+  - uv tool install arga-cli
+  - arga login
+  targets:
+  - ~/.cursor/mcp.json
+  - ~/.claude/mcp.json
+  - ~/.config/codex/mcp.json
+clients:
+- Cursor
+- Claude Code
+- Codex
+tools:
+- name: create_sandbox_run
+  description: Create a sandbox run that deploys app code plus selected twins.
+- name: get_sandbox_run
+  description: Fetch sandbox status, app URL, twin URLs, and environment variables.
+- name: create_twin_run
+  description: Create a standalone twin run on the current /twin-runs API.
+- name: get_twin_run
+  description: Fetch twin-run status, URLs, environment variables, and seed details.
+- name: create_test_run
+  description: Create an ad hoc browser test run on the current /test-runs API.
+- name: run_test
+  description: Run a saved browser test by ID.
+- name: get_test_run
+  description: Fetch test-run status, events, artifacts, and summary fields.
+- name: list_tests
+  description: List saved browser tests.
+- name: get_twin_catalog
+  description: List all available digital twin types that can be provisioned.
+- name: list_connected_sources
+  description: List all tool sources you have connected (GitHub, Slack, Jira, etc.).
+- name: investigate_bug
+  description: Investigate a bug by searching all connected sources and tracing the root cause.
+- name: search_context
+  description: Search for context across all connected tools using natural language.
+- name: get_source_detail
+  description: Fetch a specific record from a connected source by its identifier.
+- name: search_github
+  description: Search GitHub pull requests, issues, and code.
+- name: search_linear
+  description: Search Linear issues.
+- name: search_slack
+  description: Search Slack messages and threads.
+- name: search_sentry
+  description: Search Sentry issues.
+- name: search_grafana
+  description: Search Grafana dashboards or alerts.
+- name: search_posthog
+  description: Search PostHog exceptions or run a HogQL query.
+tools_legacy:
+- name: start_url_validation
+  description: Legacy alias for starting a browser validation run against a deployed URL.
+- name: get_validation_results
+  description: Get status/results for a validation run or a standalone twin provision run.
+- name: cancel_validation_run
+  description: Legacy alias that cancels a running validation or environment run.
+- name: provision_twins
+  description: Legacy alias for starting a standalone twin provision.
+- name: cancel_run
+  description: Compatibility alias for cancelling legacy validation or environment runs.

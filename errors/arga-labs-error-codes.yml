@@ -1,0 +1,36 @@
+generated: '2026-07-18'
+method: searched
+source: https://docs.argalabs.com/api-reference/auth
+envelope:
+  field: detail
+  format: JSON object with a human-readable `detail` string on 4xx responses.
+errors:
+- status: 409
+  condition: One account per email — the submitted email is already linked to another account.
+  detail: "Only one account can use an email address. This email is already linked to another account."
+  endpoints:
+  - POST /auth/email-verification/request
+  - POST /auth/email-verification/verify
+  - POST /auth/email/signup
+- status: 302
+  condition: GitHub OAuth callback (purpose login) — GitHub account or returned email already linked to a different Arga account.
+  detail: Redirect to the web app login page with error=github_identity_already_linked and a detail query parameter.
+  endpoints:
+  - GET /auth/github/callback
+- status: 302
+  condition: GitHub OAuth callback (purpose connect) — GitHub account or its email already linked to a different Arga account.
+  detail: Redirect to /integrations with error=github_identity_already_linked and a detail query parameter.
+  endpoints:
+  - GET /auth/github/callback
+- status: 400
+  condition: Twin request validation — unsupported webhook triggers, folder/search sort keys, event stream types, or downscope scopes (per-twin fidelity limits).
+  detail: Structured provider-style validation error (e.g. Box/Discord-shaped 400).
+- status: 403
+  condition: Twin request rejected — unsupported downscope scopes or forbidden operations against a digital twin.
+  detail: Structured provider-style 403 response.
+- status: 429
+  condition: Plan usage limit reached (e.g. Free plan 10 test-runner runs/month; Team PR-check/sandbox/CI caps).
+  detail: Error explaining the restriction and how many runs remain; limits reset monthly.
+notes:
+- Rate/usage limits are enforced per plan (Free/Team/Paid) — see plans and lifecycle artifacts.
+- Twins deliberately return the underlying service's native error shapes rather than a unified Arga envelope.

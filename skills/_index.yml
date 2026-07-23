@@ -1,0 +1,16 @@
+generated: '2026-07-18'
+method: generated
+source: https://docs.argalabs.com/mcp
+note: >-
+  Grounded in Arga's published MCP tool surface (mcp/arga-labs-mcp.yml). Arga
+  publishes no OpenAPI spec, so operations[] reference real, documented MCP tool
+  names rather than OpenAPI operationIds.
+skills:
+- file: arga-labs-provision-and-validate.md
+  name: Provision digital twins and validate a URL
+  api: mcp/arga-labs-mcp.yml
+  operations: [get_twin_catalog, create_twin_run, get_twin_run, create_test_run, get_test_run]
+- file: arga-labs-investigate-bug.md
+  name: Investigate a bug across connected sources
+  api: mcp/arga-labs-mcp.yml
+  operations: [list_connected_sources, search_context, investigate_bug, get_source_detail]

@@ -1,0 +1,36 @@
+generated: '2026-07-18'
+method: searched
+source: https://docs.argalabs.com/sdks/overview
+packages:
+- language: python
+  registry: pypi
+  name: arga-py-sdk
+  url: https://pypi.org/project/arga-py-sdk/
+  install: uv add arga-py-sdk
+  import: from arga_sdk import Arga
+  repo: https://github.com/ArgaLabs/arga-python-sdk
+  role: sdk
+  official: true
+- language: typescript
+  registry: npm
+  name: arga-sdk
+  url: https://www.npmjs.com/package/arga-sdk
+  install: npm install arga-sdk
+  repo: https://github.com/ArgaLabs/arga-typescript-sdk
+  role: sdk
+  official: true
+- language: python
+  registry: pypi
+  name: arga-cli
+  url: https://pypi.org/project/arga-cli/
+  install: uv tool install arga-cli
+  role: cli
+  official: true
+- language: javascript
+  registry: npm
+  name: arga-wizard
+  url: https://www.npmjs.com/package/arga-wizard
+  install: npx arga-wizard
+  role: cli-wizard
+  note: Compatibility entrypoint for the twin-provisioning wizard on setups without arga-cli.
+  official: true

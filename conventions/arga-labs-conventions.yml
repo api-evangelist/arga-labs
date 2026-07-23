@@ -1,0 +1,38 @@
+generated: '2026-07-18'
+method: searched
+source: https://docs.argalabs.com/api-reference
+base_url: https://api.argalabs.com
+authentication:
+  style: bearer
+  header: 'Authorization: Bearer <token>'
+  key_prefix: arga_sk_
+  ref: authentication/arga-labs-authentication.yml
+environment_override:
+  cli_flag: --api-url
+  env_var: ARGA_API_URL
+  default: https://api.argalabs.com
+error_envelope:
+  shape: JSON object with a `detail` string on 4xx (e.g. 409 conflicts).
+  identity_conflicts: GitHub OAuth callbacks redirect with error=github_identity_already_linked plus a detail query parameter.
+  ref: errors/arga-labs-error-codes.yml
+streaming:
+  websocket:
+    endpoint: Stream runner events (browser-agent run progress).
+    ref: https://docs.argalabs.com/api-reference/browser-agent-stream
+  sse:
+    endpoint: Stream validation results (validation run events via Server-Sent Events).
+    ref: https://docs.argalabs.com/api-reference/get-stream-validation-results
+machine_output:
+  cli_json_flag: --json
+  note: Key CLI commands emit structured JSON (run_id/status objects, run summaries with worker_logs/runtime_logs/warnings) for CI and agent automation.
+ttl:
+  meaning: Every validation run and twin session has a time-to-live controlling maximum duration.
+  free: 10 min fixed, not extendable
+  team_paid: default 30 min, max 480 min, extendable via --ttl (1-480)
+  ref: lifecycle/arga-labs-lifecycle.yml
+versioning:
+  scheme: unversioned base host; compatibility handled via deprecated route aliases
+  ref: lifecycle/arga-labs-lifecycle.yml
+idempotency:
+  documented: false
+  note: No idempotency-key header/parameter is documented on the public API surface as of this capture.

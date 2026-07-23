@@ -1,22 +1,127 @@
 aid: arga-labs
 name: Arga Labs
-description: Arga Labs is a company surfaced as a portfolio company of y-combinator and added to the API
-  Evangelist network as a stub for enrichment. This profile is a lead awaiting the enrichment pipeline.
+description: >-
+  Arga Labs provides testing infrastructure for AI agents and agent-facing
+  software. Its platform spins up isolated, resettable sandboxes wired to
+  stateful "digital twins" of third-party services — Stripe, Slack, GitHub,
+  Salesforce, Notion, Discord, Google Drive, Jira, Box, Dropbox, Gmail, Google
+  Calendar and more — so teams can run browser-agent tests, per-PR preview
+  environments, and CI validation without hitting real APIs, exhausting rate
+  limits, or mutating production data. Developers drive it from a web app, a
+  REST API at api.argalabs.com, the arga CLI, official Python and TypeScript
+  SDKs, and a hosted MCP server that lets coding agents (Cursor, Claude Code,
+  Codex) provision twins and query validation runs directly from the editor.
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://www.argalabs.com/logo_black.png
 url: https://raw.githubusercontent.com/api-evangelist/arga-labs/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
 x-backed-by:
 - y-combinator
-x-tier: stub
-x-tier-reason: portfolio-lead
+x-tier: profiled
+x-tier-reason: enriched-from-provider-surface
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-18'
 tags:
 - Company
-apis: []
+- API Testing
+- Sandboxes
+- Digital Twins
+- AI Agents
+- Developer Tools
+- Testing Infrastructure
+- CI/CD
+- Browser Testing
+- MCP
+- Mock Services
+apis:
+- name: Arga API
+  description: >-
+    Public REST API for Arga's testing infrastructure — provision digital twins,
+    deploy branches/PRs into sandboxes, run browser-agent validations, save and
+    replay tests, manage scenarios (seed data), and wire GitHub CI checks. Bearer
+    API-key authenticated (arga_sk_ keys). Base URL https://api.argalabs.com.
+  humanURL: https://docs.argalabs.com/api-reference
+  baseURL: https://api.argalabs.com
+  tags:
+  - API Testing
+  - Sandboxes
+  - Digital Twins
+  properties:
+  - type: Documentation
+    url: https://docs.argalabs.com/
+  - type: APIReference
+    url: https://docs.argalabs.com/api-reference
+  - type: Authentication
+    url: https://docs.argalabs.com/api-reference/auth
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
+common:
+- type: DeveloperPortal
+  url: https://docs.argalabs.com/
+- type: Documentation
+  url: https://docs.argalabs.com/
+- type: APIReference
+  url: https://docs.argalabs.com/api-reference
+- type: GettingStarted
+  url: https://docs.argalabs.com/quickstart
+- type: SignUp
+  url: https://app.argalabs.com/get-started
+- type: Login
+  url: https://login.argalabs.com/login
+- type: Pricing
+  url: https://www.argalabs.com/pricing
+- type: Blog
+  url: https://www.argalabs.com/blog
+- type: GitHubOrganization
+  url: https://github.com/ArgaLabs
+- type: Support
+  url: mailto:contact@argalabs.com
+- type: LinkedIn
+  url: https://www.linkedin.com/company/arga-labs
+- type: Twitter
+  url: https://x.com/ArgaLabs
+- type: Authentication
+  url: authentication/arga-labs-authentication.yml
+- type: Packages
+  url: packages/arga-labs-packages.yml
+- type: SDKs
+  url: packages/arga-labs-packages.yml
+- type: CLI
+  url: cli/arga-labs-cli.yml
+- type: MCPServer
+  url: mcp/arga-labs-mcp.yml
+- type: LLMsTxt
+  url: llms/arga-labs-llms.txt
+- type: Conventions
+  url: conventions/arga-labs-conventions.yml
+- type: ErrorCatalog
+  url: errors/arga-labs-error-codes.yml
+- type: Lifecycle
+  url: lifecycle/arga-labs-lifecycle.yml
+- type: Deprecation
+  url: https://docs.argalabs.com/api-reference/availability-notes
+- type: DomainSecurity
+  url: security/arga-labs-domain-security.yml
+- type: AgentSkill
+  url: skills/_index.yml
+x-enrichment:
+  date: '2026-07-19'
+  status: backfilled
+  pass: local-v1
+  note: backfilled from .gitignore signal + verified work evidence

@@ -1,0 +1,72 @@
+generated: '2026-07-18'
+method: searched
+source: https://docs.argalabs.com/cli-and-mcp
+name: arga
+package:
+  registry: pypi
+  name: arga-cli
+  ref: packages/arga-labs-packages.yml
+install:
+- uv tool install arga-cli
+- pipx install arga-cli
+- pip install arga-cli
+verify: arga --help
+config_path: ~/.config/arga/config.json
+api_url:
+  default: https://api.argalabs.com
+  override_flag: --api-url
+  env_var: ARGA_API_URL
+auth:
+- arga login
+- arga whoami
+- arga logout
+command_groups:
+- group: previews
+  purpose: Preview environments — sandboxes, PR checks, standalone twins.
+  commands:
+  - arga previews sandboxes run --repo <owner/repo> --branch <b> --twins <a,b> --scenario-id <id>
+  - arga previews pr-checks run --repo <owner/repo> --pr <n> [--context-notes <text>]
+  - arga previews pr-checks install <owner/repo>
+  - arga previews pr-checks config <owner/repo>
+  - arga previews pr-checks config-set <owner/repo> --trigger <pr|branch> --comments <on|off>
+  - arga previews twins provision --twins <a,b> --ttl <min> --wait
+  - arga previews twins status <run_id>
+  - arga previews twins mcp-config <run_id> [--install]
+  - arga previews twins lock <run_id>
+- group: test-runner
+  purpose: Reusable browser testing — runs, saved tests, TestConfig JSON.
+  commands:
+  - arga test-runner runs url --url <url> --prompt <text> [--twins <a,b>] [--scenario <id>] [--email <e> --password <p>] [--ttl <min>] [--test-config <file>] [--json]
+  - arga test-runner runs list | get <id> | logs <id> | rerun <id> | message <id> "<text>"
+  - arga test-runner tests list | get | create | import | export | edit | run | delete
+  - arga test-runner tests config validate | summarize | normalize --file <json>
+- group: runs
+  purpose: Legacy validation/preview run history and worker/runtime logs.
+  commands:
+  - arga runs list --repo <owner/repo> --status <s>
+  - arga runs status <run_id> [--json]
+  - arga runs logs <run_id> [--errors-only] [--json]
+  - arga runs cancel <run_id>
+- group: wizard
+  purpose: Project scanning + twin provisioning + .env rewriting.
+  commands:
+  - arga wizard
+  - arga wizard status | reset | extend | teardown | env
+- group: mcp
+  purpose: Install the Arga MCP server into local coding agents.
+  commands:
+  - arga mcp install [--api-url <url>]
+- group: git-helpers
+  purpose: Mark commits so Arga CI validation skips them.
+  commands:
+  - arga commit --skip [-m <msg>]
+  - arga push --skip
+key_flows:
+- Authenticate a machine (device login) and inspect plan/usage with arga whoami.
+- Provision standalone twins and print their base URLs + env vars.
+- Run a one-off browser validation against a deployed URL, optionally with twins.
+- Validate a pull request (Team/Paid) and configure automatic GitHub PR checks.
+- Author deterministic TestConfig JSON for coding agents.
+notes:
+- Wizard scans package.json, requirements.txt, pyproject.toml and .env* for known integrations (Stripe, Slack, Discord, Notion, Google Drive, Dropbox, Box, Google Calendar, Waterfall, Unstructured), backs up .env to .env.arga-backup, and rewrites keys to route through twins.
+- --ttl, --json, and --context-notes require CLI v0.1.5+.

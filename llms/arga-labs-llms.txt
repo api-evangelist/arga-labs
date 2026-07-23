@@ -1,0 +1,91 @@
+# Arga
+
+## Docs
+
+- [AGENTS](https://docs.argalabs.com/AGENTS.md)
+- [API reference](https://docs.argalabs.com/api-reference.md): Public API endpoints for twins, scenarios, sandboxes, runner, tests, and CI checks
+- [Authentication](https://docs.argalabs.com/api-reference/auth.md): Authenticate requests to the Arga API
+- [Availability notes](https://docs.argalabs.com/api-reference/availability-notes.md): Current API shape and compatibility notes
+- [POST Create a runner run](https://docs.argalabs.com/api-reference/browser-agent-create-run.md): Run the browser agent against a frontend or sandbox
+- [GET Get runner artifact](https://docs.argalabs.com/api-reference/browser-agent-get-artifact.md): Download an artifact from a runner run
+- [GET Get a runner run](https://docs.argalabs.com/api-reference/browser-agent-get-run.md): Retrieve a runner run
+- [GET List runner runs](https://docs.argalabs.com/api-reference/browser-agent-list-runs.md): List recent runner runs
+- [POST Rerun a runner run](https://docs.argalabs.com/api-reference/browser-agent-rerun.md): Replay a run from its saved TestConfig
+- [POST Send runner message](https://docs.argalabs.com/api-reference/browser-agent-send-message.md): Append instructions to a running runner run
+- [WEBSOCKET Stream runner events](https://docs.argalabs.com/api-reference/browser-agent-stream.md): Subscribe to run progress events
+- [PATCH Update runner config](https://docs.argalabs.com/api-reference/browser-agent-update-config.md): Edit a run's TestConfig
+- [GET Get GitHub CI config](https://docs.argalabs.com/api-reference/ci-github-config.md): Read GitHub validation settings
+- [GET List enabled GitHub CI repos](https://docs.argalabs.com/api-reference/ci-github-enabled.md): List repositories with CI validation enabled
+- [POST Install GitHub CI validation](https://docs.argalabs.com/api-reference/ci-github-install.md): Register a repository for GitHub CI checks
+- [POST Save GitHub CI config](https://docs.argalabs.com/api-reference/ci-github-save-config.md): Create or update GitHub validation settings
+- [GET List CI validation runs](https://docs.argalabs.com/api-reference/ci-list-validation-runs.md): List GitHub validation runs
+- [POST Start PR validation](https://docs.argalabs.com/api-reference/ci-start-pr-validation.md): Manually start a GitHub PR validation run
+- [DELETE Delete a sandbox](https://docs.argalabs.com/api-reference/delete-delete-a-sandbox.md): Tear down a sandbox
+- [DELETE Delete a test](https://docs.argalabs.com/api-reference/delete-delete-a-saved-runner-test.md): Delete a saved browser-agent test
+- [DELETE Delete a scenario](https://docs.argalabs.com/api-reference/delete-delete-a-scenario.md): Delete a saved scenario
+- [GET Get validation run artifact](https://docs.argalabs.com/api-reference/get-get-a-run-artifact.md): Download an artifact from a validation run
+- [GET Get a sandbox](https://docs.argalabs.com/api-reference/get-get-a-sandbox.md): Retrieve sandbox status and connection details
+- [GET Get a test](https://docs.argalabs.com/api-reference/get-get-a-saved-runner-test.md): Retrieve a saved test
+- [GET Get a scenario](https://docs.argalabs.com/api-reference/get-get-a-scenario.md): Retrieve one scenario
+- [GET Get validation run details](https://docs.argalabs.com/api-reference/get-get-run-details.md): Fetch a validation run summary
+- [GET Get validation run logs](https://docs.argalabs.com/api-reference/get-get-run-logs.md): Fetch logs for a validation run
+- [GET Get sandbox logs](https://docs.argalabs.com/api-reference/get-get-sandbox-logs.md): Retrieve sandbox event logs
+- [GET Get twin provision status](https://docs.argalabs.com/api-reference/get-get-twin-provision-status.md): Poll a twin provisioning run
+- [GET List available twins](https://docs.argalabs.com/api-reference/get-list-available-twins.md): List digital twins that can be provisioned
+- [GET List preset scenarios](https://docs.argalabs.com/api-reference/get-list-preset-scenarios.md): List built-in seed scenarios
+- [GET List tests](https://docs.argalabs.com/api-reference/get-list-saved-runner-tests.md): List saved browser-agent tests
+- [GET List scenario long runs](https://docs.argalabs.com/api-reference/get-list-scenario-long-runs.md): List the latest active twin quickstart run for each saved scenario
+- [GET List scenarios](https://docs.argalabs.com/api-reference/get-list-scenarios.md): List your saved scenarios
+- [GET Stream validation results](https://docs.argalabs.com/api-reference/get-stream-validation-results.md): Stream validation run events with SSE
+- [PATCH Toggle GitHub CI config](https://docs.argalabs.com/api-reference/patch-toggle-github-repo-validation.md): Enable or disable GitHub validation
+- [PATCH Update a test](https://docs.argalabs.com/api-reference/patch-update-a-saved-runner-test.md): Update a saved browser-agent test
+- [POST Cancel a validation run](https://docs.argalabs.com/api-reference/post-cancel-a-validation-run.md): Cancel a running validation
+- [POST Create a scenario](https://docs.argalabs.com/api-reference/post-create-a-scenario.md): Create reusable twin seed data
+- [POST Create a sandbox](https://docs.argalabs.com/api-reference/post-create-sandbox.md): Deploy a repo branch or PR into an isolated sandbox with twins
+- [POST Extend twin provision TTL](https://docs.argalabs.com/api-reference/post-extend-twin-provision-ttl.md): Extend an active twin session
+- [POST Lock twin provision public access](https://docs.argalabs.com/api-reference/post-lock-twin-provision-public-access.md): Disable public access without teardown
+- [POST Provision twins](https://docs.argalabs.com/api-reference/post-provision-twins.md): Spin up ephemeral digital twins
+- [POST Run a test](https://docs.argalabs.com/api-reference/post-run-a-saved-runner-test.md): Execute a saved browser-agent test
+- [POST Save a test](https://docs.argalabs.com/api-reference/post-save-a-runner-test.md): Create a reusable browser-agent test
+- [POST Tear down twin provision](https://docs.argalabs.com/api-reference/post-tear-down-twin-provision.md): Destroy a twin session immediately
+- [PUT Update a scenario](https://docs.argalabs.com/api-reference/put-update-a-scenario.md): Update reusable twin seed data
+- [CLI](https://docs.argalabs.com/cli-and-mcp.md): Use the Arga CLI to authenticate and run validation workflows
+- [Digital twins](https://docs.argalabs.com/concepts/digital-twins.md): Stateful clones of external services so sandboxes never hit real APIs
+- [How Arga works](https://docs.argalabs.com/concepts/how-it-works.md): Natural language tests, deterministic sandboxes, auto-heal
+- [Full-stack session replay](https://docs.argalabs.com/concepts/session-replay.md): Reconstruct exact application state from user interactions (This feature is currently in private beta)
+- [Twin reference](https://docs.argalabs.com/concepts/twin-reference.md): Per-twin support, known limitations, and MCP tools
+- [Agent & security testing](https://docs.argalabs.com/features/agent-security-testing.md): Red-team your software and validate AI agent behaviour in safe, sandboxed environments
+- [Scenarios](https://docs.argalabs.com/features/custom-scenarios.md): Pre-configured digital twin data for your validation runs
+- [Testing integrations locally](https://docs.argalabs.com/features/local-testing.md): Use digital twins as drop-in replacements for third-party APIs during local development
+- [Per-PR sandboxes](https://docs.argalabs.com/features/pr-validation.md): Every PR gets a deterministic sandbox with API twins, tested automatically
+- [Sandbox configuration](https://docs.argalabs.com/features/sandbox-config.md): Configure branch sandbox deploy targets with .arga/sandbox.yml
+- [Twins quickstart](https://docs.argalabs.com/features/twins-quickstart.md): Set up digital twins for your staging environment in minutes
+- [Validation workflows](https://docs.argalabs.com/features/validate-modes.md): Choose between test runs, sandboxes, and PR checks
+- [Arga](https://docs.argalabs.com/index.md): Real-world sandboxes for apps and agents
+- [Integrations](https://docs.argalabs.com/integrations.md): Connect production tools so Arga can seed realistic digital twins
+- [MCP](https://docs.argalabs.com/mcp.md): Install Arga MCP into your IDE agent
+- [Plans and limits](https://docs.argalabs.com/plans.md): Compare Free and Team plans, usage limits, and how to upgrade
+- [Quickstart](https://docs.argalabs.com/quickstart.md): Start testing your app with Arga in minutes
+- [Overview](https://docs.argalabs.com/sdks/overview.md): Official client libraries for the Arga API
+- [Python SDK](https://docs.argalabs.com/sdks/python.md): Install and use the Arga Python SDK
+- [Python errors and clients](https://docs.argalabs.com/sdks/python/errors.md): Handle Python SDK errors and manage client lifecycles
+- [Python examples](https://docs.argalabs.com/sdks/python/examples.md): Reference material for the Python SDK
+- [Python runs](https://docs.argalabs.com/sdks/python/runs.md): Use the current run-model resources and legacy validation helpers with the Python SDK
+- [Python scenarios](https://docs.argalabs.com/sdks/python/scenarios.md): Create reusable scenarios and seed twin runs with the Python SDK
+- [Python twins](https://docs.argalabs.com/sdks/python/twins.md): Manage digital twin sessions with the Python SDK
+- [TypeScript SDK](https://docs.argalabs.com/sdks/typescript.md): Install and use the Arga TypeScript SDK
+- [TypeScript error handling](https://docs.argalabs.com/sdks/typescript/errors.md): Handle API errors from the TypeScript SDK
+- [TypeScript examples](https://docs.argalabs.com/sdks/typescript/examples.md): Reference material for the TypeScript SDK
+- [TypeScript runs](https://docs.argalabs.com/sdks/typescript/runs.md): Use the current run-model resources and legacy validation helpers with the TypeScript SDK
+- [TypeScript scenarios](https://docs.argalabs.com/sdks/typescript/scenarios.md): Create reusable scenarios and seed twin runs with the TypeScript SDK
+- [TypeScript twins](https://docs.argalabs.com/sdks/typescript/twins.md): Manage digital twin sessions with the TypeScript SDK
+- [Troubleshooting](https://docs.argalabs.com/troubleshooting.md): Common issues and how to fix them
+- [Web app](https://docs.argalabs.com/web-app.md): Navigate the Arga dashboard to run validations, connect integrations, and manage your account
+
+## OpenAPI Specs
+
+- [openapi](https://docs.argalabs.com/api-reference/openapi.json)
+
+## Optional
+
+- [Book a demo](https://cal.com/akiratong/30min?overlayCalendar=true)

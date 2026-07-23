@@ -1,0 +1,26 @@
+generated: '2026-07-18'
+method: searched
+source: https://docs.argalabs.com/api-reference/availability-notes
+versioning:
+  scheme: unversioned base host (https://api.argalabs.com); compatibility maintained via deprecated route aliases
+  docs: https://docs.argalabs.com/api-reference/availability-notes
+deprecation:
+  policy_url: https://docs.argalabs.com/api-reference/availability-notes
+  sunset_header: false
+  deprecated_routes:
+  - route: /demo-runner/*
+    status: deprecated alias, mounted for compatibility
+    replacement: /runner/*
+  - route: /validate/agent-run
+    status: removed
+    replacement: sandbox_runs / twin_runs / tests / test_runs SDK namespaces
+  cli_command_aliases:
+    note: Legacy CLI commands (arga test url, arga validate pr, arga scenarios ...) still work as aliases; new scripts should use `previews` and `test-runner` groups.
+status_page:
+  found: false
+  note: No public status.argalabs.com status page resolved at capture time.
+sla:
+  found: false
+private_beta:
+- Full-stack session replay (https://docs.argalabs.com/concepts/session-replay)
+plans_ref: https://docs.argalabs.com/plans
