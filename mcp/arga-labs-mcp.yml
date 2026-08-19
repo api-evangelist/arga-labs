@@ -73,3 +73,10 @@ tools_legacy:
   description: Legacy alias for starting a standalone twin provision.
 - name: cancel_run
   description: Compatibility alias for cancelling legacy validation or environment runs.
+deployment:
+  mode: remote
+  endpoint: https://api.argalabs.com/mcp
+  verified: probed
+  probe: live
+  checked: '2026-08-12'
+  source: catalog MCP census
