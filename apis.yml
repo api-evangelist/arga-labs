@@ -11,6 +11,17 @@ description: >-
   REST API at api.argalabs.com, the arga CLI, official Python and TypeScript
   SDKs, and a hosted MCP server that lets coding agents (Cursor, Claude Code,
   Codex) provision twins and query validation runs directly from the editor.
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: false
+  label: Hosted service · you call their endpoint
+  confidence: medium
+  source:
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: unknown
   onboarding: self-serve
