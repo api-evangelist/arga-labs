@@ -84,6 +84,8 @@ maintainers:
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: Website
+  url: https://www.argalabs.com/
 - type: DeveloperPortal
   url: https://docs.argalabs.com/
 - type: Documentation
