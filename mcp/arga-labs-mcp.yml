@@ -24,44 +24,141 @@ clients:
 - Claude Code
 - Codex
 tools:
-- name: create_sandbox_run
-  description: Create a sandbox run that deploys app code plus selected twins.
-- name: get_sandbox_run
-  description: Fetch sandbox status, app URL, twin URLs, and environment variables.
-- name: create_twin_run
-  description: Create a standalone twin run on the current /twin-runs API.
-- name: get_twin_run
-  description: Fetch twin-run status, URLs, environment variables, and seed details.
-- name: create_test_run
-  description: Create an ad hoc browser test run on the current /test-runs API.
-- name: run_test
-  description: Run a saved browser test by ID.
-- name: get_test_run
-  description: Fetch test-run status, events, artifacts, and summary fields.
-- name: list_tests
-  description: List saved browser tests.
-- name: get_twin_catalog
-  description: List all available digital twin types that can be provisioned.
 - name: list_connected_sources
-  description: List all tool sources you have connected (GitHub, Slack, Jira, etc.).
+  description: List all tool sources the authenticated user has connected.
 - name: investigate_bug
-  description: Investigate a bug by searching all connected sources and tracing the root cause.
+  description: Investigate a bug or error by searching all connected sources and tracing the root cause.
 - name: search_context
-  description: Search for context across all connected tools using natural language.
+  description: Search for context across connected tools using natural language.
 - name: get_source_detail
   description: Fetch a specific record from a connected source by its identifier.
 - name: search_github
-  description: Search GitHub pull requests, issues, and code.
+  description: Search GitHub PRs, issues, and code for the authenticated user.
 - name: search_linear
-  description: Search Linear issues.
+  description: Search Linear issues for the authenticated user.
 - name: search_slack
-  description: Search Slack messages and threads.
+  description: Search Slack messages and threads for the authenticated user.
 - name: search_sentry
-  description: Search Sentry issues.
+  description: Search Sentry issues for the authenticated user.
 - name: search_grafana
-  description: Search Grafana dashboards or alerts.
+  description: Search Grafana dashboards or alerts for the authenticated user.
 - name: search_posthog
-  description: Search PostHog exceptions or run a HogQL query.
+  description: Search PostHog exceptions or run a HogQL query for the authenticated user.
+- name: create_sandbox_run
+  description: 'Create a sandbox run that deploys app code plus selected twins.
+
+
+    Provide either branch or pr_url. Use the returned sandbox_id with run_test
+
+    or create_test_run via the sandbox_id parameter.'
+- name: get_sandbox_run
+  description: Get sandbox run status, app URL, twin URLs, and environment variables.
+- name: create_twin_run
+  description: 'Create a twin run that deploys and optionally seeds one or more twins.
+
+
+    Use scenario_prompt to generate seed data. Fast is the default; choose thorough
+
+    for complex requirements when a longer wait is acceptable. A scenario_id reuses
+
+    saved seed data and ignores scenario_prompt and scenario_generation_mode.'
+- name: get_twin_run
+  description: Get twin run status, URLs, env vars, and seed details.
+- name: create_test_run
+  description: 'Create an ad hoc test run.
+
+
+    Use sandbox_id to run against a sandbox run. Use pr_url/repo/branch as
+
+    metadata when the test run was triggered by a PR.'
+- name: run_test
+  description: 'Run a saved test by ID.
+
+
+    For PR checks, pass pr_url/repo/branch and a ready sandbox_id or start_url.'
+- name: get_test_run
+  description: Get test run status, events, artifacts, and summary fields.
+- name: list_tests
+  description: List saved tests, optionally filtered by repository.
+- name: start_url_validation
+  description: 'Legacy alias: start a browser test run against a deployed URL.
+
+
+    Prefer create_test_run for new MCP clients. Returns a run ID you can pass
+
+    to get_validation_results to check progress.
+
+    If the target app requires sign-in, provide the email and password for a
+
+    test account on *your* app (not your Arga account).
+
+    Optionally request digital twins (comma-separated, e.g. "slack,stripe,waterfall").
+
+    Optionally provide repo (owner/repo format) and branch to enable diff-aware
+
+    test planning.'
+- name: get_validation_results
+  description: 'Legacy alias: get the status and step-by-step results of a validation run.
+
+
+    Prefer get_test_run for new MCP clients. Poll this only after calling the
+
+    deprecated start_url_validation tool. Terminal statuses are: complete,
+
+    failed, cancelled. Non-terminal: queued, running.
+
+
+    For non-terminal statuses, returns a short text status message.
+
+    For terminal statuses, returns structured JSON with step-level results,
+
+    pass/fail counts, and a human-readable summary — suitable for machine parsing.'
+- name: cancel_validation_run
+  description: 'Legacy alias: cancel a validation/environment run.'
+- name: cancel_run
+  description: 'Cancel a legacy validation/environment run.
+
+
+    Test-run cancellation is not wired yet; this currently covers sandbox,
+
+    twin, and legacy validation runs backed by the environment runner.'
+- name: get_twin_provision_status
+  description: Return quickstart twin provision status, URLs, and proxy token (when ready).
+- name: reset_twins
+  description: 'Reset quickstart twins to their captured baseline seed state (in-place, no VM restart).
+
+
+    This replays the baseline captured at provision time. For long-lived scenario environments,
+
+    use reseed_scenario_twin_environment instead.'
+- name: extend_twins
+  description: Extend the TTL of a quickstart twin provision.
+- name: teardown_twins
+  description: Tear down a quickstart twin provision immediately.
+- name: ensure_scenario_twin_environment
+  description: 'Create or return the long-lived twin URLs for a saved scenario.
+
+
+    twins: optional comma-separated twin names. If omitted, uses the scenario''s
+
+    saved twin list.
+
+    public: whether stable `base_url`s should be callable without proxy auth.'
+- name: get_scenario_twin_environment
+  description: Get status and URLs for a scenario's long-lived twin environment.
+- name: reseed_scenario_twin_environment
+  description: Reseed a ready long-lived scenario twin environment from its scenario config.
+- name: delete_scenario_twin_environment
+  description: Tear down a scenario's long-lived twin environment.
+- name: list_scenario_twin_environments
+  description: List all long-lived scenario twin environments for the authenticated user.
+- name: get_twin_catalog
+  description: 'List all available digital twin types that can be provisioned.
+
+
+    Returns the name, label, and kind of each twin.
+
+    Use these names when calling provision_twins or start_url_validation.'
 tools_legacy:
 - name: start_url_validation
   description: Legacy alias for starting a browser validation run against a deployed URL.
@@ -80,3 +177,37 @@ deployment:
   probe: live
   checked: '2026-08-12'
   source: catalog MCP census
+tools_count: 32
+tool_quality:
+  tool_count: 32
+  tokens_total: 4616
+  tokens_per_tool_median: 118
+  heavy_tools: []
+  heavy_tool_count: 0
+  params_total: 78
+  params_undescribed: 77
+  params_described_pct: 1.3
+  tools_with_undescribed_params: 29
+  tools_annotated: 0
+  annotated_pct: 0.0
+  state_changing_unhinted:
+  - create_sandbox_run
+  - create_twin_run
+  - create_test_run
+  - run_test
+  - start_url_validation
+  - cancel_validation_run
+  - cancel_run
+  - delete_scenario_twin_environment
+  tools_missing_schema: 0
+  short_descriptions: 0
+  duplicate_descriptions: 0
+  duplicate_names: 0
+  nonportable_names: []
+  output_schema_count: 32
+  token_estimate: chars/3.6 of each compact tool definition
+  source: mcp/arga-labs-mcp-tools.json
+  measured: '2026-10-20'
+  scored: false
+  note: Facts from the saved tools/list capture (mcp_tool_quality.py); recorded, not scored. Checks learned
+    from Glimind's agent-readiness audit.

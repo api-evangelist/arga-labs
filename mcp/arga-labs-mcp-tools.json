@@ -1,0 +1,1245 @@
+{
+  "endpoint": "https://api.argalabs.com/mcp",
+  "captured": "2026-10-20",
+  "final_url": "https://api.argalabs.com/mcp/",
+  "method": "initialize + tools/list (anonymous, no tool called; roadmap#992)",
+  "protocol_version": "2025-06-18",
+  "server_info": {
+    "name": "arga-context",
+    "version": "3.4.7"
+  },
+  "result": {
+    "tools": [
+      {
+        "name": "list_connected_sources",
+        "description": "List all tool sources the authenticated user has connected.",
+        "inputSchema": {
+          "additionalProperties": false,
+          "properties": {},
+          "type": "object"
+        },
+        "outputSchema": {
+          "properties": {
+            "result": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "result"
+          ],
+          "type": "object",
+          "x-fastmcp-wrap-result": true
+        },
+        "_meta": {
+          "fastmcp": {
+            "tags": []
+          }
+        }
+      },
+      {
+        "name": "investigate_bug",
+        "description": "Investigate a bug or error by searching all connected sources and tracing the root cause.",
+        "inputSchema": {
+          "additionalProperties": false,
+          "properties": {
+            "description": {
+              "type": "string"
+            },
+            "error_message": {
+              "default": "",
+              "type": "string"
+            },
+            "trace_id": {
+              "default": "",
+              "type": "string"
+            },
+            "sentry_issue_id": {
+              "default": "",
+              "type": "string"
+            },
+            "time_window": {
+              "default": "last 24 hours",
+              "type": "string"
+            }
+          },
+          "required": [
+            "description"
+          ],
+          "type": "object"
+        },
+        "outputSchema": {
+          "properties": {
+            "result": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "result"
+          ],
+          "type": "object",
+          "x-fastmcp-wrap-result": true
+        },
+        "_meta": {
+          "fastmcp": {
+            "tags": []
+          }
+        }
+      },
+      {
+        "name": "search_context",
+        "description": "Search for context across connected tools using natural language.",
+        "inputSchema": {
+          "additionalProperties": false,
+          "properties": {
+            "query": {
+              "type": "string"
+            },
+            "sources": {
+              "default": "",
+              "type": "string"
+            }
+          },
+          "required": [
+            "query"
+          ],
+          "type": "object"
+        },
+        "outputSchema": {
+          "properties": {
+            "result": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "result"
+          ],
+          "type": "object",
+          "x-fastmcp-wrap-result": true
+        },
+        "_meta": {
+          "fastmcp": {
+            "tags": []
+          }
+        }
+      },
+      {
+        "name": "get_source_detail",
+        "description": "Fetch a specific record from a connected source by its identifier.",
+        "inputSchema": {
+          "additionalProperties": false,
+          "properties": {
+            "source_type": {
+              "type": "string"
+            },
+            "identifier": {
+              "type": "string"
+            },
+            "extra": {
+              "default": "",
+              "type": "string"
+            }
+          },
+          "required": [
+            "source_type",
+            "identifier"
+          ],
+          "type": "object"
+        },
+        "outputSchema": {
+          "properties": {
+            "result": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "result"
+          ],
+          "type": "object",
+          "x-fastmcp-wrap-result": true
+        },
+        "_meta": {
+          "fastmcp": {
+            "tags": []
+          }
+        }
+      },
+      {
+        "name": "search_github",
+        "description": "Search GitHub PRs, issues, and code for the authenticated user.",
+        "inputSchema": {
+          "additionalProperties": false,
+          "properties": {
+            "query": {
+              "type": "string"
+            },
+            "repo": {
+              "default": "",
+              "type": "string"
+            }
+          },
+          "required": [
+            "query"
+          ],
+          "type": "object"
+        },
+        "outputSchema": {
+          "properties": {
+            "result": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "result"
+          ],
+          "type": "object",
+          "x-fastmcp-wrap-result": true
+        },
+        "_meta": {
+          "fastmcp": {
+            "tags": []
+          }
+        }
+      },
+      {
+        "name": "search_linear",
+        "description": "Search Linear issues for the authenticated user.",
+        "inputSchema": {
+          "additionalProperties": false,
+          "properties": {
+            "query": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "query"
+          ],
+          "type": "object"
+        },
+        "outputSchema": {
+          "properties": {
+            "result": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "result"
+          ],
+          "type": "object",
+          "x-fastmcp-wrap-result": true
+        },
+        "_meta": {
+          "fastmcp": {
+            "tags": []
+          }
+        }
+      },
+      {
+        "name": "search_slack",
+        "description": "Search Slack messages and threads for the authenticated user.",
+        "inputSchema": {
+          "additionalProperties": false,
+          "properties": {
+            "query": {
+              "type": "string"
+            },
+            "channel": {
+              "default": "",
+              "type": "string"
+            },
+            "date_range": {
+              "default": "",
+              "type": "string"
+            }
+          },
+          "required": [
+            "query"
+          ],
+          "type": "object"
+        },
+        "outputSchema": {
+          "properties": {
+            "result": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "result"
+          ],
+          "type": "object",
+          "x-fastmcp-wrap-result": true
+        },
+        "_meta": {
+          "fastmcp": {
+            "tags": []
+          }
+        }
+      },
+      {
+        "name": "search_sentry",
+        "description": "Search Sentry issues for the authenticated user.",
+        "inputSchema": {
+          "additionalProperties": false,
+          "properties": {
+            "query": {
+              "type": "string"
+            },
+            "project": {
+              "default": "",
+              "type": "string"
+            }
+          },
+          "required": [
+            "query"
+          ],
+          "type": "object"
+        },
+        "outputSchema": {
+          "properties": {
+            "result": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "result"
+          ],
+          "type": "object",
+          "x-fastmcp-wrap-result": true
+        },
+        "_meta": {
+          "fastmcp": {
+            "tags": []
+          }
+        }
+      },
+      {
+        "name": "search_grafana",
+        "description": "Search Grafana dashboards or alerts for the authenticated user.",
+        "inputSchema": {
+          "additionalProperties": false,
+          "properties": {
+            "query": {
+              "default": "",
+              "type": "string"
+            },
+            "state": {
+              "default": "",
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        "outputSchema": {
+          "properties": {
+            "result": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "result"
+          ],
+          "type": "object",
+          "x-fastmcp-wrap-result": true
+        },
+        "_meta": {
+          "fastmcp": {
+            "tags": []
+          }
+        }
+      },
+      {
+        "name": "search_posthog",
+        "description": "Search PostHog exceptions or run a HogQL query for the authenticated user.",
+        "inputSchema": {
+          "additionalProperties": false,
+          "properties": {
+            "query": {
+              "default": "",
+              "type": "string"
+            },
+            "hogql": {
+              "default": "",
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        "outputSchema": {
+          "properties": {
+            "result": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "result"
+          ],
+          "type": "object",
+          "x-fastmcp-wrap-result": true
+        },
+        "_meta": {
+          "fastmcp": {
+            "tags": []
+          }
+        }
+      },
+      {
+        "name": "create_sandbox_run",
+        "description": "Create a sandbox run that deploys app code plus selected twins.\n\nProvide either branch or pr_url. Use the returned sandbox_id with run_test\nor create_test_run via the sandbox_id parameter.",
+        "inputSchema": {
+          "additionalProperties": false,
+          "properties": {
+            "repo": {
+              "type": "string"
+            },
+            "branch": {
+              "default": "",
+              "type": "string"
+            },
+            "pr_url": {
+              "default": "",
+              "type": "string"
+            },
+            "twins": {
+              "default": "",
+              "type": "string"
+            },
+            "scenario_id": {
+              "default": "",
+              "type": "string"
+            },
+            "scenario_prompt": {
+              "default": "",
+              "type": "string"
+            },
+            "ttl_minutes": {
+              "default": 60,
+              "type": "integer"
+            }
+          },
+          "required": [
+            "repo"
+          ],
+          "type": "object"
+        },
+        "outputSchema": {
+          "properties": {
+            "result": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "result"
+          ],
+          "type": "object",
+          "x-fastmcp-wrap-result": true
+        },
+        "_meta": {
+          "fastmcp": {
+            "tags": []
+          }
+        }
+      },
+      {
+        "name": "get_sandbox_run",
+        "description": "Get sandbox run status, app URL, twin URLs, and environment variables.",
+        "inputSchema": {
+          "additionalProperties": false,
+          "properties": {
+            "sandbox_id": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "sandbox_id"
+          ],
+          "type": "object"
+        },
+        "outputSchema": {
+          "properties": {
+            "result": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "result"
+          ],
+          "type": "object",
+          "x-fastmcp-wrap-result": true
+        },
+        "_meta": {
+          "fastmcp": {
+            "tags": []
+          }
+        }
+      },
+      {
+        "name": "create_twin_run",
+        "description": "Create a twin run that deploys and optionally seeds one or more twins.\n\nUse scenario_prompt to generate seed data. Fast is the default; choose thorough\nfor complex requirements when a longer wait is acceptable. A scenario_id reuses\nsaved seed data and ignores scenario_prompt and scenario_generation_mode.",
+        "inputSchema": {
+          "additionalProperties": false,
+          "properties": {
+            "twins": {
+              "type": "string"
+            },
+            "scenario_id": {
+              "default": "",
+              "type": "string"
+            },
+            "scenario_prompt": {
+              "default": "",
+              "type": "string"
+            },
+            "ttl_minutes": {
+              "default": 60,
+              "type": "integer"
+            },
+            "public": {
+              "default": true,
+              "type": "boolean"
+            },
+            "scenario_generation_mode": {
+              "default": "fast",
+              "description": "Fast generates everyday scenarios sooner; thorough handles complex requirements with more time. Only used with scenario_prompt when scenario_id is absent.",
+              "enum": [
+                "fast",
+                "thorough"
+              ],
+              "type": "string"
+            }
+          },
+          "required": [
+            "twins"
+          ],
+          "type": "object"
+        },
+        "outputSchema": {
+          "properties": {
+            "result": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "result"
+          ],
+          "type": "object",
+          "x-fastmcp-wrap-result": true
+        },
+        "_meta": {
+          "fastmcp": {
+            "tags": []
+          }
+        }
+      },
+      {
+        "name": "get_twin_run",
+        "description": "Get twin run status, URLs, env vars, and seed details.",
+        "inputSchema": {
+          "additionalProperties": false,
+          "properties": {
+            "run_id": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "run_id"
+          ],
+          "type": "object"
+        },
+        "outputSchema": {
+          "properties": {
+            "result": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "result"
+          ],
+          "type": "object",
+          "x-fastmcp-wrap-result": true
+        },
+        "_meta": {
+          "fastmcp": {
+            "tags": []
+          }
+        }
+      },
+      {
+        "name": "create_test_run",
+        "description": "Create an ad hoc test run.\n\nUse sandbox_id to run against a sandbox run. Use pr_url/repo/branch as\nmetadata when the test run was triggered by a PR.",
+        "inputSchema": {
+          "additionalProperties": false,
+          "properties": {
+            "prompt": {
+              "type": "string"
+            },
+            "start_url": {
+              "default": "",
+              "type": "string"
+            },
+            "sandbox_id": {
+              "default": "",
+              "type": "string"
+            },
+            "test_config_json": {
+              "default": "",
+              "type": "string"
+            },
+            "repo": {
+              "default": "",
+              "type": "string"
+            },
+            "branch": {
+              "default": "",
+              "type": "string"
+            },
+            "pr_url": {
+              "default": "",
+              "type": "string"
+            },
+            "scenario_id": {
+              "default": "",
+              "type": "string"
+            },
+            "twins": {
+              "default": "",
+              "type": "string"
+            }
+          },
+          "required": [
+            "prompt"
+          ],
+          "type": "object"
+        },
+        "outputSchema": {
+          "properties": {
+            "result": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "result"
+          ],
+          "type": "object",
+          "x-fastmcp-wrap-result": true
+        },
+        "_meta": {
+          "fastmcp": {
+            "tags": []
+          }
+        }
+      },
+      {
+        "name": "run_test",
+        "description": "Run a saved test by ID.\n\nFor PR checks, pass pr_url/repo/branch and a ready sandbox_id or start_url.",
+        "inputSchema": {
+          "additionalProperties": false,
+          "properties": {
+            "test_id": {
+              "type": "string"
+            },
+            "start_url": {
+              "default": "",
+              "type": "string"
+            },
+            "sandbox_id": {
+              "default": "",
+              "type": "string"
+            },
+            "prompt": {
+              "default": "",
+              "type": "string"
+            },
+            "repo": {
+              "default": "",
+              "type": "string"
+            },
+            "branch": {
+              "default": "",
+              "type": "string"
+            },
+            "pr_url": {
+              "default": "",
+              "type": "string"
+            },
+            "scenario_id": {
+              "default": "",
+              "type": "string"
+            },
+            "twins": {
+              "default": "",
+              "type": "string"
+            }
+          },
+          "required": [
+            "test_id"
+          ],
+          "type": "object"
+        },
+        "outputSchema": {
+          "properties": {
+            "result": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "result"
+          ],
+          "type": "object",
+          "x-fastmcp-wrap-result": true
+        },
+        "_meta": {
+          "fastmcp": {
+            "tags": []
+          }
+        }
+      },
+      {
+        "name": "get_test_run",
+        "description": "Get test run status, events, artifacts, and summary fields.",
+        "inputSchema": {
+          "additionalProperties": false,
+          "properties": {
+            "run_id": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "run_id"
+          ],
+          "type": "object"
+        },
+        "outputSchema": {
+          "properties": {
+            "result": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "result"
+          ],
+          "type": "object",
+          "x-fastmcp-wrap-result": true
+        },
+        "_meta": {
+          "fastmcp": {
+            "tags": []
+          }
+        }
+      },
+      {
+        "name": "list_tests",
+        "description": "List saved tests, optionally filtered by repository.",
+        "inputSchema": {
+          "additionalProperties": false,
+          "properties": {
+            "repo_full_name": {
+              "default": "",
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        "outputSchema": {
+          "properties": {
+            "result": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "result"
+          ],
+          "type": "object",
+          "x-fastmcp-wrap-result": true
+        },
+        "_meta": {
+          "fastmcp": {
+            "tags": []
+          }
+        }
+      },
+      {
+        "name": "start_url_validation",
+        "description": "Legacy alias: start a browser test run against a deployed URL.\n\nPrefer create_test_run for new MCP clients. Returns a run ID you can pass\nto get_validation_results to check progress.\nIf the target app requires sign-in, provide the email and password for a\ntest account on *your* app (not your Arga account).\nOptionally request digital twins (comma-separated, e.g. \"slack,stripe,waterfall\").\nOptionally provide repo (owner/repo format) and branch to enable diff-aware\ntest planning.",
+        "inputSchema": {
+          "additionalProperties": false,
+          "properties": {
+            "url": {
+              "type": "string"
+            },
+            "prompt": {
+              "type": "string"
+            },
+            "email": {
+              "default": "",
+              "type": "string"
+            },
+            "password": {
+              "default": "",
+              "type": "string"
+            },
+            "twins": {
+              "default": "",
+              "type": "string"
+            },
+            "repo": {
+              "default": "",
+              "type": "string"
+            },
+            "branch": {
+              "default": "",
+              "type": "string"
+            }
+          },
+          "required": [
+            "url",
+            "prompt"
+          ],
+          "type": "object"
+        },
+        "outputSchema": {
+          "properties": {
+            "result": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "result"
+          ],
+          "type": "object",
+          "x-fastmcp-wrap-result": true
+        },
+        "_meta": {
+          "fastmcp": {
+            "tags": []
+          }
+        }
+      },
+      {
+        "name": "get_validation_results",
+        "description": "Legacy alias: get the status and step-by-step results of a validation run.\n\nPrefer get_test_run for new MCP clients. Poll this only after calling the\ndeprecated start_url_validation tool. Terminal statuses are: complete,\nfailed, cancelled. Non-terminal: queued, running.\n\nFor non-terminal statuses, returns a short text status message.\nFor terminal statuses, returns structured JSON with step-level results,\npass/fail counts, and a human-readable summary — suitable for machine parsing.",
+        "inputSchema": {
+          "additionalProperties": false,
+          "properties": {
+            "run_id": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "run_id"
+          ],
+          "type": "object"
+        },
+        "outputSchema": {
+          "properties": {
+            "result": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "result"
+          ],
+          "type": "object",
+          "x-fastmcp-wrap-result": true
+        },
+        "_meta": {
+          "fastmcp": {
+            "tags": []
+          }
+        }
+      },
+      {
+        "name": "cancel_validation_run",
+        "description": "Legacy alias: cancel a validation/environment run.",
+        "inputSchema": {
+          "additionalProperties": false,
+          "properties": {
+            "run_id": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "run_id"
+          ],
+          "type": "object"
+        },
+        "outputSchema": {
+          "properties": {
+            "result": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "result"
+          ],
+          "type": "object",
+          "x-fastmcp-wrap-result": true
+        },
+        "_meta": {
+          "fastmcp": {
+            "tags": []
+          }
+        }
+      },
+      {
+        "name": "cancel_run",
+        "description": "Cancel a legacy validation/environment run.\n\nTest-run cancellation is not wired yet; this currently covers sandbox,\ntwin, and legacy validation runs backed by the environment runner.",
+        "inputSchema": {
+          "additionalProperties": false,
+          "properties": {
+            "run_id": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "run_id"
+          ],
+          "type": "object"
+        },
+        "outputSchema": {
+          "properties": {
+            "result": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "result"
+          ],
+          "type": "object",
+          "x-fastmcp-wrap-result": true
+        },
+        "_meta": {
+          "fastmcp": {
+            "tags": []
+          }
+        }
+      },
+      {
+        "name": "get_twin_provision_status",
+        "description": "Return quickstart twin provision status, URLs, and proxy token (when ready).",
+        "inputSchema": {
+          "additionalProperties": false,
+          "properties": {
+            "run_id": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "run_id"
+          ],
+          "type": "object"
+        },
+        "outputSchema": {
+          "properties": {
+            "result": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "result"
+          ],
+          "type": "object",
+          "x-fastmcp-wrap-result": true
+        },
+        "_meta": {
+          "fastmcp": {
+            "tags": []
+          }
+        }
+      },
+      {
+        "name": "reset_twins",
+        "description": "Reset quickstart twins to their captured baseline seed state (in-place, no VM restart).\n\nThis replays the baseline captured at provision time. For long-lived scenario environments,\nuse reseed_scenario_twin_environment instead.",
+        "inputSchema": {
+          "additionalProperties": false,
+          "properties": {
+            "run_id": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "run_id"
+          ],
+          "type": "object"
+        },
+        "outputSchema": {
+          "properties": {
+            "result": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "result"
+          ],
+          "type": "object",
+          "x-fastmcp-wrap-result": true
+        },
+        "_meta": {
+          "fastmcp": {
+            "tags": []
+          }
+        }
+      },
+      {
+        "name": "extend_twins",
+        "description": "Extend the TTL of a quickstart twin provision.",
+        "inputSchema": {
+          "additionalProperties": false,
+          "properties": {
+            "run_id": {
+              "type": "string"
+            },
+            "ttl_minutes": {
+              "default": 60,
+              "type": "integer"
+            }
+          },
+          "required": [
+            "run_id"
+          ],
+          "type": "object"
+        },
+        "outputSchema": {
+          "properties": {
+            "result": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "result"
+          ],
+          "type": "object",
+          "x-fastmcp-wrap-result": true
+        },
+        "_meta": {
+          "fastmcp": {
+            "tags": []
+          }
+        }
+      },
+      {
+        "name": "teardown_twins",
+        "description": "Tear down a quickstart twin provision immediately.",
+        "inputSchema": {
+          "additionalProperties": false,
+          "properties": {
+            "run_id": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "run_id"
+          ],
+          "type": "object"
+        },
+        "outputSchema": {
+          "properties": {
+            "result": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "result"
+          ],
+          "type": "object",
+          "x-fastmcp-wrap-result": true
+        },
+        "_meta": {
+          "fastmcp": {
+            "tags": []
+          }
+        }
+      },
+      {
+        "name": "ensure_scenario_twin_environment",
+        "description": "Create or return the long-lived twin URLs for a saved scenario.\n\ntwins: optional comma-separated twin names. If omitted, uses the scenario's\nsaved twin list.\npublic: whether stable `base_url`s should be callable without proxy auth.",
+        "inputSchema": {
+          "additionalProperties": false,
+          "properties": {
+            "scenario_id": {
+              "type": "string"
+            },
+            "twins": {
+              "default": "",
+              "type": "string"
+            },
+            "public": {
+              "default": true,
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "scenario_id"
+          ],
+          "type": "object"
+        },
+        "outputSchema": {
+          "properties": {
+            "result": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "result"
+          ],
+          "type": "object",
+          "x-fastmcp-wrap-result": true
+        },
+        "_meta": {
+          "fastmcp": {
+            "tags": []
+          }
+        }
+      },
+      {
+        "name": "get_scenario_twin_environment",
+        "description": "Get status and URLs for a scenario's long-lived twin environment.",
+        "inputSchema": {
+          "additionalProperties": false,
+          "properties": {
+            "scenario_id": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "scenario_id"
+          ],
+          "type": "object"
+        },
+        "outputSchema": {
+          "properties": {
+            "result": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "result"
+          ],
+          "type": "object",
+          "x-fastmcp-wrap-result": true
+        },
+        "_meta": {
+          "fastmcp": {
+            "tags": []
+          }
+        }
+      },
+      {
+        "name": "reseed_scenario_twin_environment",
+        "description": "Reseed a ready long-lived scenario twin environment from its scenario config.",
+        "inputSchema": {
+          "additionalProperties": false,
+          "properties": {
+            "scenario_id": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "scenario_id"
+          ],
+          "type": "object"
+        },
+        "outputSchema": {
+          "properties": {
+            "result": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "result"
+          ],
+          "type": "object",
+          "x-fastmcp-wrap-result": true
+        },
+        "_meta": {
+          "fastmcp": {
+            "tags": []
+          }
+        }
+      },
+      {
+        "name": "delete_scenario_twin_environment",
+        "description": "Tear down a scenario's long-lived twin environment.",
+        "inputSchema": {
+          "additionalProperties": false,
+          "properties": {
+            "scenario_id": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "scenario_id"
+          ],
+          "type": "object"
+        },
+        "outputSchema": {
+          "properties": {
+            "result": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "result"
+          ],
+          "type": "object",
+          "x-fastmcp-wrap-result": true
+        },
+        "_meta": {
+          "fastmcp": {
+            "tags": []
+          }
+        }
+      },
+      {
+        "name": "list_scenario_twin_environments",
+        "description": "List all long-lived scenario twin environments for the authenticated user.",
+        "inputSchema": {
+          "additionalProperties": false,
+          "properties": {},
+          "type": "object"
+        },
+        "outputSchema": {
+          "properties": {
+            "result": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "result"
+          ],
+          "type": "object",
+          "x-fastmcp-wrap-result": true
+        },
+        "_meta": {
+          "fastmcp": {
+            "tags": []
+          }
+        }
+      },
+      {
+        "name": "get_twin_catalog",
+        "description": "List all available digital twin types that can be provisioned.\n\nReturns the name, label, and kind of each twin.\nUse these names when calling provision_twins or start_url_validation.",
+        "inputSchema": {
+          "additionalProperties": false,
+          "properties": {},
+          "type": "object"
+        },
+        "outputSchema": {
+          "properties": {
+            "result": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "result"
+          ],
+          "type": "object",
+          "x-fastmcp-wrap-result": true
+        },
+        "_meta": {
+          "fastmcp": {
+            "tags": []
+          }
+        }
+      }
+    ]
+  }
+}
